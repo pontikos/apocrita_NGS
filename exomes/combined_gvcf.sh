@@ -1,6 +1,6 @@
 #!/bin/sh 
 #$ -cwd
-#$ -pe smp 40
+#$ -pe smp 20
 #$ -l h_rt=1:00:00
 #$ -l h_vmem=2G
 #$ -t 1-23
@@ -10,7 +10,7 @@ CHROM=${array[ $SGE_TASK_ID ]}
 
 set -x
 
-ncores=40
+ncores=$NSLOTS
 memory2=2
 memory=$(printf %.0f $(echo "$ncores * $memory2" | bc -l))
 

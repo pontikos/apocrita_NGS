@@ -1,8 +1,8 @@
 #!/bin/sh 
 #$ -cwd
-#$ -pe smp 40
+#$ -pe smp 20
 #$ -l h_rt=1:00:00
-#$ -l h_vmem=2G
+#$ -l h_vmem=4G
 #$ -t 1-23
 
 array=( dud `seq 1 22` X )
@@ -10,7 +10,7 @@ CHROM=${array[ $SGE_TASK_ID ]}
 
 set -x
 
-ncores=40
+ncores=$NSLOTS
 memory2=2
 
 code=$1

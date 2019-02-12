@@ -12,6 +12,7 @@ then
    for code in `cat $input`
    do
      f1=`find ${BASEDIR}/fastq/exomes/ -name ${code}_R1_*.f*q.gz`
+     f2=`find ${BASEDIR}/fastq/exomes/ -name ${code}_R2_*.f*q.gz`
      outdir=`dirname $f1 | sed 's/fastq/bam\/b37/'`/${code}
      if [ ! -f ${outdir}/${code}_sorted_unique.bam.bai ]
      then
